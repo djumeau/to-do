@@ -21,8 +21,21 @@ const addToDOM = (item) => {
     document.getElementById('todo-list').appendChild(div);
 }
 
+const createToDo = (e) => {
+    e.preventDefault();
+
+    const newToDo = {
+        'completed': false,
+        'title': e.target.firstElementChild.value
+    }
+    
+    console.log(newToDo);
+}
+
 const init = () => {
     document.addEventListener('DOMContentLoaded', getToDos);
+
+    document.querySelector('#todo-form').addEventListener('submit', createToDo);
 }
 
 init();
