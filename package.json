@@ -1,0 +1,18 @@
+{
+  "name": "to_dos",
+  "version": "1.0.0",
+  "description": "Manages a To-Do List",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [
+    "To-Do",
+    "List"
+  ],
+  "author": "David Jumeau",
+  "license": "MIT",
+  "dependencies": {
+    "vite": "^5.4.10"
+  }
+}
