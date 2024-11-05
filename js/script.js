@@ -61,10 +61,24 @@ const updateToDo = (id, completed) => {
         headers: {
             'Content-Type' : 'application/json'
         }
-    })
-        .then(res => res.json())
-        .then((data) => console.log(data));
+    });
+        // .then(res => res.json())
+        // .then((data) => console.log(data));
 };
+
+const deleteToDo = (e) => {
+
+    e.preventDefault();
+
+    if (e.target.classList.contains('todo')) {
+        const id = e.target.dataset.id;
+
+        fetch(`${apiURL}/${id}`, {
+            method: 'DELETE'
+        }).then(res => res.json())
+        .then(() => e.target.remove());
+    }
+}
 
 const init = () => {
     document.addEventListener('DOMContentLoaded', getToDos);
@@ -72,6 +86,8 @@ const init = () => {
     document.querySelector('#todo-form').addEventListener('submit', createToDo);
 
     document.querySelector('#todo-list').addEventListener('click', toggleCompleted);
+
+    document.querySelector("#todo-list").addEventListener('dblclick', deleteToDo);
 }
 
 init();
